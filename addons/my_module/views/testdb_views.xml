@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_testdb_form" model="ir.ui.view">
+        <field name="name">testdb.form</field>
+        <field name="model">cars</field>
+        <field name="arch" type="xml">
+            <form string="cars">
+                <sheet>
+                    <group>
+                        
+                        <field name="brand"/>
+                        <field name="model"/>
+                    </group> 
+                </sheet>
+            </form>
+        </field>
+    </record> 
+
+
+     <record id="view_test_list" model="ir.ui.view">
+        <field name="name">testdb.list</field>
+        <field name="model">cars</field>
+        <field name="arch" type="xml">
+            <list string="cars">
+                <field name="id"/>
+                <field name="brand"/>
+                <field name="model"/>
+             
+            </list>
+        </field>
+    </record>
+
+
+
+    <record id="action_testdb" model="ir.actions.act_window">
+        <field name="name">testdb</field>
+        <field name="res_model">cars</field>
+        <field name="view_mode">list</field>
+    </record> 
+
+   
+
+
+
+
+<!-- <menuitem id="menu_student_root" name="library"    sequence=""/> -->
+
+  <menuitem id="testdb_record"
+         name="testdb_Records"
+         parent="menu_student_main"
+         sequence="70"
+         action ='action_testdb'
+         />
+  
+
+</odoo>

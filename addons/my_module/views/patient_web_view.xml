@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <odoo>
+    <record id="my_module_patient_website_page_view" model="ir.ui.view">
+        <field name="name">my_module.patient_template</field>
+        <field name="key">my_module.patient_template</field>
+        <field name="arch" type="xml">
+            <template id="patient_template" name="Patient contact" page="True">
+                <t t-call="website.layout">
+                    <section id="patient_section">
+                        <div class="container" id="formid" style="width: 60%">
+                            <div class="mt-4">
+                                <div id="patient_list_container_id" class="mt-5 p-3 border rounded bg-light">
+                                    <p class="text-center text-muted">
+                                        <i class="fa fa-spinner fa-spin me-2"/>
+                                        Loading OWL Component...
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </t>
+            </template>
+        </field>
+    </record>
+
+    <menuitem id="menu_website_patient_form_page"
+              name="Patient Forms"
+              parent="website.main_menu"
+              sequence="90"
+              href="/patient-forms"/>
+</odoo> -->

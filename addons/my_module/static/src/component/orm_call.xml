@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <templates xml:space="preserve" >
+        <t t-name ="owl.OdooServices" owl="1">
+        <Layout display ="display">
+            <div class="p-4">
+                <button class= "btn btn-primary" t-on-click="getPatient">Get patients</button>
+            </div>
+
+            
+            <div>
+                <table t-if ="state.patients" class="table" >
+                    <tr t-foreach="state.patients" t-as = "patient" t-key="patient.id">
+                        <td t-esc= "patient.name" />
+                        <td t-esc= "patient.email" />
+                    </tr>
+
+                </table>
+
+            </div>
+        </Layout>
+        </t>
+    </templates>

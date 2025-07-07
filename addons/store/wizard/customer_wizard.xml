@@ -1,0 +1,41 @@
+ <odoo>
+    <data>
+ 
+ <record id="view_customer_wizard_form" model="ir.ui.view">
+        <field name="name">customer_wizard.form</field>
+        <field name="model">customer_wizard</field>
+        
+        <field name="arch" type="xml">
+            <form string="order">
+                <sheet>
+                    <group>
+                        <field name = "first_name"/>
+                    </group>
+
+                    <button name='button_confirm' string = 'Update Name' class='oe_highlight' type='object'/>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+
+    <record id="customer_name_update_action" model='ir.actions.act_window'>
+        <field name='name'>customer_wizard_name</field>
+        <field name='res_model'>customer_wizard</field>
+        <field name = 'view_mode'>form</field>
+        <field name ='target'>new</field>
+
+    </record>
+
+
+
+
+
+
+    
+
+
+
+    </data>
+    </odoo>

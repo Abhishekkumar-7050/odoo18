@@ -1,0 +1,46 @@
+<odoo>
+  <record id="res_company_three_level_approve_button" model="ir.ui.view">
+        <field name="name">purchase.order.field.inherit_information</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+        <xpath expr="//header/button[@name='button_approve']" position="replace">
+        <button name="button_approve" type="object" invisible="state != 'to approve'" string="To Approve" class="oe_highlight"  data-hotkey="z"/>
+        <button name="button_approve" type="object" invisible="state != 'managerwait'" string="Manager Approve" class="oe_highlight"  data-hotkey="z" groups="po_three_level_approval.group_of_manager_company"/>
+
+        <button name="button_approve" type="object" invisible="state != 'manager'" string="Approve Manager" class="oe_highlight"  data-hotkey="z"/>
+        <button name="button_approve" type="object" invisible="state != 'finace'" string="Approve Finance" class="oe_highlight"  data-hotkey="z"/>
+        <button name="button_approve" type="object" invisible="state != 'financewait'" string="Approve Finance" class="oe_highlight"  data-hotkey="z"  groups="po_three_level_approval.group_of_Finace"/>
+
+        <button name="button_approve" type="object" invisible="state != 'director'" string="Approve Director" class="oe_highlight"  data-hotkey="z"/>
+        <button name="button_approve" type="object" invisible="state != 'directorwait'" string="Approve Director" class="oe_highlight"  data-hotkey="z" groups="po_three_level_approval.group_of_director"/>
+
+
+         
+            </xpath>
+
+
+            <xpath expr="//header/button[@name='button_approve']" position="after">
+                <button name ="action_refuse" type ="object" string="Refuse" invisible="state in ('draft' ,'refuse' , 'purchase')"  visible ="state in ('manager' ,'managerwait' , 'finace' , 'financewait')"  groups ="po_three_level_approval.group_of_manager_company" ></button>
+                <button name ="action_refuse" type ="object" string="Refuse" invisible="state in ('draft' ,'refuse' , 'purchase')"  visible ="state in ('finace' , 'financewait' , 'director', 'directorwait')"  groups ="po_three_level_approval.group_of_Finace" ></button>
+                <button name ="action_refuse" type ="object" string="Refuse" invisible="state in ('draft' ,'refuse' , 'purchase')" visible ="state in ('director' , 'directorwait')"  groups ="po_three_level_approval.group_of_director" ></button>
+                
+                
+            </xpath>
+           <!-- <xpath expr="//header/button[@name='button_approve']" position="after">
+            <button name = "po_three_level_approval.send_mail_to_managers"   invisible = "state in ('purchase', 'done','draft')"  string = "Send Email To Approve" type = "action" />
+            </xpath> -->
+
+            <xpath expr = "//field[@name='order_line']" position = "attributes">
+                <attribute name = "readonly">
+                    state not in ['draft']
+                </attribute>
+                
+
+            </xpath>
+           
+
+
+        </field>
+    </record>
+</odoo>

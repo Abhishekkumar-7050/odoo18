@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+  <template id="report_quotation_report_details1">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.basic_layout">
+                    <div class="page" style=" margin: 0 ; padding:0;">
+                        <div class="oe_structure" />
+                        <!-- <h2>Quotation Report</h2> -->
+
+                        <!-- <br></br> -->
+                        <div
+                            style="height : auto ;  width : 100% ; position: relative; ">
+
+                            <div style=" width : 65% ;">
+
+                                <h1
+                                    style="font-size :35px ; color: white; background-color: #D3D3D3 ; padding: 12px ;">
+                                    
+                                    QUOTATION</h1>
+
+                                <div
+                                    style="background-color: #FFC300 ; margin-top: -25px ; padding-left: 14px ; padding-top: -10px; border-box: box-sizing; border-right : 100px solid white ; border-top : 250px solid  #FFC300">
+                                    <!-- <div style = " position: absolute  ; right :0px; bottom: 0px; width: 30px ; border-right : 100px solid white;  border-top:50px solid #FFC300 "></div> -->
+                                     <div style = "margin-top: -200px ">
+                                    <h2>Quotation to : </h2>
+                                    <span t-field="doc.partner_id" />
+                                    <br></br>
+                                    <span t-field='doc.partner_id.street' />
+                                    <br></br>
+                                    <span t-field='doc.partner_id.city' />
+                                    <br></br>
+                                    <span t-field='doc.partner_id.state_id' />
+                                    <br></br>
+                                    <span t-field='doc.partner_id.zip' />
+                                    <br></br>
+                                    <span t-field='doc.partner_id.country_id' />
+                                    </div>
+                                    <br></br>
+                                    <!-- <span t-field='doc.partner_id.website' /> -->
+
+
+                                </div>
+
+                            </div>
+                            <div style=" width : 30% ;   position: absolute;  bottom: 20px; right: 16px;  font-size: 18px; ">
+                                 <div style = "height : 150px ; width: 170px ; margin-bottom : 30px ; padding-left: 35px;">
+                                    <img style = "width:100%; height: 100% ;" src="data:image/jpeg;base64,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" alt="M kat Logo" width="500" height="600"></img>
+                                 </div>
+
+                                <div style="padding-left: 25px;"> Date <span
+                                        t-field='doc.date_order' />   <br></br> 
+                                        Validity <span t-field='doc.validity_date' /> <br></br>
+                                        Quotation No <span t-field ='doc.name' />
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- <p>
+                            Name :
+                            <span t-field="doc.partner_id"/>
+                        </p> -->
+
+                        <!-- Address Name : <p t-field ='doc.partner_id.address_name'></p> -->
+                        <!-- Address street : <p t-field ='doc.partner_id.street'></p>
+                        Address City : <p t-field ='doc.partner_id.city'></p>
+                        Address State : <p t-field ='doc.partner_id.state_id'></p>
+                        Address Zip : <p t-field ='doc.partner_id.zip'></p>
+                        Address Country : <p t-field ='doc.partner_id.country_id'></p>
+
+
+                        Tax id : <p t-field ='doc.partner_id.vat'></p>
+                        Phone : <p t-field ='doc.partner_id.phone'></p>
+                        Email : <p t-field ='doc.partner_id.email'></p>
+                        Website : <p t-field ='doc.partner_id.website'></p>
+
+
+                        Payment_term :<span t-field='doc.payment_term_id'></span>
+
+                        Date order : <p t-field ='doc.date_order'></p> -->
+
+                        <!-- Product : <p t-field ='doc.product_id.name'></p> -->
+                        <h2> Order line</h2>
+
+                        <table style="width: 100%; border-collapse: collapse; text-align: left;"
+                            class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th style=" border-bottom: 1px solid #C1C1C1; padding: 5px;">
+                                        Product</th>
+                                    <th style=" border-bottom: 1px solid #C1C1C1; padding: 5px;">
+                                        Quantity</th>
+                                    <th style=" border-bottom: 1px solid #C1C1C1; padding: 5px;">Unit
+                                        Price</th>
+                                    <th style=" border-bottom: 1px solid #C1C1C1; padding: 5px;">
+                                        Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.order_line" t-as="line">
+                                    <tr>
+                                        <td style="border-bottom: 1px solid #C1C1C1; padding: 5px;">
+                                            <span t-field="line.product_id" />
+                                        </td>
+                                        <td style="border-bottom: 1px solid #C1C1C1; padding: 5px;">
+                                            <span t-field="line.product_uom_qty" />
+                                        </td>
+                                        <td style="border-bottom: 1px solid #C1C1C1; padding: 5px;">
+                                            <span t-field="line.price_unit" />
+                                        </td>
+
+                                        <td style="border-bottom: 1px solid #C1C1C1; padding: 5px;">
+                                            <span t-field="line.price_subtotal" />
+                                        </td>
+                                    </tr>
+
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <p style = " position : absolute ; color : #d3d3d3 ; z-index : -5 ; font-size : 150px ; -webkit-transform : rotate(-30deg) ; margin-left: 200px ;  margin-top: -100px; opacity : .3;"> M-KAT</p>
+
+
+                        <div style=" hieght:auto; width :100px ; position: relative; ">
+                            <div style="position: absolute; right: -800px ">
+                                
+                                <p>Untaxed Amount: <span t-out ="doc.amount_untaxed" /></p>
+                                <p> Tax :<span
+                                        t-field='doc.amount_tax' /></p>
+
+                                <p>Total: <span
+                                        t-field='doc.amount_total' />
+                                </p>
+                            
+                                
+                            
+
+                            </div>
+
+                        </div>
+
+                        <div style="margin-top: 30px; text-align: left;">
+
+                            <p>
+                                <span style="color:#808080 ; font-size : 35px">Thank You for Your
+                                    Business</span>
+                            </p>
+
+                            <h2 style="font-size : 30px ;"> Payment Info</h2>
+                            <p style = "padding: 40px ; margin-top : -15px"><span>Bank Details:</span><br />  <br/>
+                                Account No: 03220200002128<br /> <br/>
+                                Account Name: Your company <br />  <br/>
+                                Bank Name: Bank of Baroda<br /> <br/>
+                                NEFT/RTGS IFSC: BARBOBHADRA</p>
+                            <p>
+                                <span>Terms and Conditions:</span>
+                                <br />
+                                <ul>
+                                    <li> Prices are ex-Godown Ahmedabad. All other charges are extra. </li>
+                                    <li>Freight, Insurance, and Transportation extra at actual. </li>
+                                    <li> 100% Advance along with the Order.</li>
+                                    <li> Warranty: One Year against all Manufacturing Defects.</li>
+                                    <li> Order confirmed cannot be canceled. </li>
+
+                                </ul>
+
+                            </p>
+
+               
+   
+
+
+                        </div>
+
+
+                        <h3>Your comppany </h3>
+                        <p>250 Executive Park Blvd, Suite 3400 , 94134 , San Francisco , United States</p>
+
+                        <hr style= "border: 1px solid #D3D3D3 "></hr>
+
+                        <footer class = "footer" style= "position:fixed ; botoom 0 ; width: 100%">
+
+                        <div style = "height: auto ; width: 100% ; padding : 20px ; position : relative ;  margin-left: -10px; ">
+
+                        <div style = " width : 65% ; background-color: #FFC300; padding:30px;  "> +1 (650) 555-0111 , info@yourcompany.com</div>
+                        <div style =" width: 30% ;position: absolute;  bottom: 20px; right: 16px;  background-color:#D3D3D3 ; padding: 40px "> http://www.example.com</div>
+
+                        </div>
+
+                        </footer>
+
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    
+
+    <!-- 
+        <div class = 'footer'>
+
+            <div class = 'row' style="report_footer_style">
+                <div class= 'row'>
+                    <h1> Foooter </h1>
+
+                </div>
+
+            </div>
+
+
+
+
+        </div> -->
+
+
+    <!-- </template> -->
+
+
+    <!-- <template id="report_quotation_report_details">
+        <t t-call="web.html_container">
+           <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <h2>Quotation Report</h2>
+                        <br></br> -->
+    <!-- <p>
+                            Name :
+                            <span t-field="doc.partner_id"/>
+                        </p>
+
+                        <t t-set='s' t-value ='1234567890'/>
+
+                        <p t-esc = 's'></p>
+
+                         <p t-field = 'doc.date_order'></p> -->
+
+    <!-- <t t-if="doc.partner_id == 'Ready Mat'">
+                            <p> Yes this id  Ready Mat </p>
+                         </t>
+                         <t t-else ="">
+                            <p>This is not Ready </p>
+
+                         </t>
+                        <p t-if="doc.partner_id == 'Ready Mat'" > Yes this id  Ready Mat </p>
+                        <p t-else ="" >This is not Ready </p> -->
+
+    <!-- <t t-foreach='[1,2,3,4,5,6,7,8]' t-as ='rec'>
+                           <p t-esc='rec' />
+                           sequence of foreach loop : <span t-esc='rec_index'   />
+                           first of foreach loop : <span t-esc='rec_first'   />
+                           <p t-esc='rec_parity'/>
+                           <p t-esc='rec_even'/>
+                           <p t-esc='rec_odd'/>
+
+
+                       </t> -->
+    <!-- <t t-set ='count' t-value ='0'></t>
+                       
+                       <t t-foreach = '[1,2,3,4,5,6,7,8]' t-as = 'rec'>
+                         <t t-set ='count' t-value ='count + 1'></t>
+
+
+                       </t>
+                    count: <p t-esc='count' /> 
+
+                        
+                      <a t-att-href="www.google.com">Google it</a> -->
+
+    <!-- <p t-att="['style' , 'background-color:red']">Hii there</p> -->
+
+    <!-- </template> -->
+
+    <!-- </t> -->
+
+    <!-- <t t-call ="my_module.sub_quotation_report" />  -->
+
+
+    <!-- </t> -->
+
+    <!-- </t> -->
+    <!-- </template> -->
+
+
+    <!-- <template id= 'sub_quotation_report'>
+        <t t-call = "web.external_layout">
+
+            <div class="page">
+                <h1>this is the sub template</h1>
+
+
+            </div>
+        </t>
+
+    </template> -->
+
+
+
+    
+
+
+</odoo>
+
+
+
+
+  

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <odoo>
+     <record id="send_mail_to_student" model="ir.actions.server">
+        <field name="name">Send mail to </field>
+        <field name="model_id" ref="my_module.model_student_student"/>
+        <field name="binding_model_id" ref="my_module.model_student_student"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_send_mail_task_single()
+        </field>
+    </record>  
+
+
+
+
+   <data >
+       <record id="daily_task_mail_id" model="ir.cron">
+           <field name="name">Daily_Tasks_Mail</field>
+           <field name="model_id" ref="model_student_student"/>
+           <field name="state">code</field>
+           <field name="code">model.action_send_mail_task()</field>
+           <field name='interval_number'>1</field>
+           <field name='interval_type'>months</field>
+           <!-- <field name="nextcall"
+                  eval="(DateTime.now() + timedelta(minutes=15)).strftime('%Y-%m-%d 12:00:00')"/>
+           <field name="priority">1</field> -->
+
+       </record>
+   </data>
+</odoo>

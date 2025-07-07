@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <!-- Form View -->
+    <record id="view_customer_form_2222" model="ir.ui.view">
+        <field name="name">customer.customer.form</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <form string="customer">
+                <sheet>
+                  <header>
+                    <button name= 'open_wizard' string = 'open_wizard_update_name' class = 'oe_highlight' type = 'object'/>
+                    <button name="%(customer_name_update_action)d" string="open_wiz_by_action" type="action"/>
+                    <!-- <button name = 'create' string = 'test_create_multi' type='object' /> -->
+                    </header>
+                    <group>
+                        <field name ="first_name"/>
+                        <field name="last_name"/>
+                        <field name="age"/>
+                        <field name="country"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_customer_list" model="ir.ui.view">
+        <field name="name">customer.customer.list</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <list string="customer">
+                 <field name = "first_name"/>
+                        <field name="last_name"/>
+                        <field name="age"/>
+                        <field name="country"/>
+                        <field  name ='total_amount'/>
+            </list>
+        </field>
+    </record>
+
+
+
+
+
+
+   <record id="action_customer" model="ir.actions.act_window">
+        <field name="name">customer</field>
+        <field name="res_model">customer.customer</field>
+        <field name="view_mode">list,form</field>
+    </record> 
+
+
+  
+
+
+<menuitem id="menu_customer_list"
+         name="customer"
+         parent="menu_order_main"
+         action = 'action_customer'
+         sequence="3"/>
+
+
+<!-- <menuitem id = 'menu_to_update_username' 
+name='update First Name'
+parent='menu_order_main'
+action='customer_name_update_action'
+sequence ='5'
+/> -->
+
+</odoo>

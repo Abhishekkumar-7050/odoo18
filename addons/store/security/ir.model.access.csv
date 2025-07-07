@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_order_order,order.order.model,model_order_order,,1,1,1,1
+access_customer_customer,customer.customer.model,model_customer_customer,,1,1,1,1
+access_order_wizard,order.wizard.model,model_order_wizard,,1,1,1,1
+access_customer_wizard,customer.wizard.model,model_customer_wizard,,1,1,1,1
+
+
+
+

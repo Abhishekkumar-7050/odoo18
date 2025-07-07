@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+     
+
+        <record id="student_data_record" model='student.student'>
+            <field name="name">Demo</field>
+            <field name="age">20</field>
+            <field name="Class">EE</field>
+          
+        </record>
+
+
+        <record id="student_data_record1" model='student.student'>
+            <field name="name">Demo1</field>
+            <field name="age">20</field>
+            <field name="Class">EE</field>
+          
+        </record>
+
+
+        <record id="student_data_record2" model='student.student'>
+            <field name="name">Demo2</field>
+            <field name="age">20</field>
+            <field name="Class">12</field>
+          
+        </record>
+
+    </data>
+</odoo>

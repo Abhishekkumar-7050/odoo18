@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_student_student,student.student.model,model_student_student,,1,1,1,1
+access_course_course,course.course.model,model_course_course,,1,1,1,1
+access_student_student_data,student.student.model,model_student_student,,1,1,1,1
+access_library_library,library.library.model,model_library_library,,1,1,1,1
+access_cars,cars.model,model_cars,,1,1,1,1
+access_school_school,school.school.model,model_school_school,,1,1,1,1
+access_fine_fine,fine.fine.model,model_fine_fine,,1,1,1,1
+access_sale_order,sale.order.model,model_sale_order,,1,1,1,1
+access_patient_patient,patient.patient.model,model_patient_patient,,1,1,1,1
+
+

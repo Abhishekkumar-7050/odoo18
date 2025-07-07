@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_wizard_refuse" model="ir.ui.view">
+            <field name="name">open.wizard.refuse</field>
+            <field name="model">refuse.refuse</field>
+
+            <field name="arch" type="xml">
+                <form string="refuse">
+                    <sheet>
+                        <group>
+                            <field name="reason" />
+                        </group>
+                        <footer>
+                        <button name='button_confirm_refuse' string='Send' class='oe_highlight'
+                            type='object' />
+                        <button string ="Cancel" special="cancel"/>
+                        </footer>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+
+
+
+
+
+
+    </data>
+</odoo>

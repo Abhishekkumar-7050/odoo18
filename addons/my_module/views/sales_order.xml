@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="sale_order_form_inherit_123" model="ir.ui.view">
+        <field name="name">sale.order.field.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+           
+
+            <xpath expr="//group/field[@name='partner_id']" position="after">
+                <field name="new_field"/>
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="after">
+                <button name ='my_module.action_custom_quotation_report' string='Print Report'  type = 'action' />
+            </xpath>
+          <!-- <xpath expr="//field[@name='product_template_id']" position="after">
+             <field name="discount"/>
+              </xpath> -->
+
+        </field>
+    </record>
+
+
+
+
+     <record id="res_partner_form_inherit_123" model="ir.ui.view">
+        <field name="name">res.partner.field.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+           
+        <xpath expr="//field[@name='vat']" position="after">
+                <field name="vip_customer"/>
+            </xpath>
+            
+        </field>
+    </record>
+
+
+
+
+
+ 
+
+
+
+</odoo>

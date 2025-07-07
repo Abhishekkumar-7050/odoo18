@@ -1,0 +1,69 @@
+<odoo>
+    <record id="res_company_three_level_approve" model="ir.ui.view">
+        <field name="name">res.company.field.inherit</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//notebook/page[@name='branches']" position="after">
+                <page string="Three level approval">
+                    <group>
+                        <group>
+                            <field name="level_approval" />
+                            <field name="email_approval" invisible= "level_approval == False" />
+                            <field name="refuse_email_approval" invisible= "level_approval == False" />
+                        </group>
+                        <group>
+                            <field name="manager_approval" invisible= "level_approval == False" />
+                            <field name="finance_approval" invisible= "level_approval == False" />
+                            <field name="director_approval" invisible= "level_approval == False" />
+                        </group>
+
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+
+    <record id="res_company_three_level_approve_information" model="ir.ui.view">
+        <field name="name">purchase.order.field.inherit_information</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='purchase_delivery_invoice']" position="after">
+                <page string="Approval Information" >
+                    <group>
+                        <group>
+                            <field name="managerApprovals" />
+                            <field name="financeApprovals" />
+                            <field name="directorApprovals" />
+                            <field name="purchaseManagers" />
+                            <field name="purchaseFinances" />
+                            <field name="purchaseDirectors" />
+
+
+                        </group>
+                        <group>
+                            <field name="manager_approval_date" />
+                            <field name="finance_approval_date" />
+                            <field name="director_approval_date" />
+
+                        </group>
+
+                        <group>
+
+                            <field name="refused_By" />
+                            <field name="refused_date" />
+                            <field name="refuse_resson" />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

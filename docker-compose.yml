@@ -1,0 +1,37 @@
+version: '3'
+services:
+  db:
+    image: postgres:16
+    container_name: odoo_db
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  odoo:
+    image: odoo:18.0
+    
+    depends_on:
+      - db
+    container_name: odoo18
+    ports:
+      - 8012:8069
+    stdin_open: true
+    tty: true
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+    command:
+      ["odoo", "-c", "/etc/odoo/odoo.conf","-d","newdb","-u","my_module,po_level_approval","--dev=xml"]
+    volumes:
+      - odoo:/var/lib/odoo
+      - ./addons/:/mnt/extra-addons
+      - ./odoo.conf:/etc/odoo/odoo.conf
+    restart: always
+volumes:
+  postgres:
+  odoo:
+

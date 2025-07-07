@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+       <record id="view_list_btn_new" model="ir.ui.view">
+       <field name="name">student.view.tree.inherit</field>
+       <field name="model">student.student</field>
+       <field name="inherit_id" ref="my_module.view_student_list"/>
+       <field name="arch" type="xml">
+           <xpath expr="//list" position="attributes">
+               <attribute name="js_class">button_in_tree</attribute>
+           </xpath>
+       </field>
+   </record>
+
+
+   <record id="view_order_form_btn_new" model="ir.ui.view">
+        <field name="name">student.view.form.inherit</field>
+        <field name="model">student.student</field>
+        <field name="inherit_id" ref="my_module.view_student_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="js_class">button_in_form</attribute>
+            </xpath>
+        </field>
+</record>
+
+
+
+<record id="student_newbtn_kanban" model="ir.ui.view">
+        <field name="name">Student_view_newbtn</field>
+        <field name="model">student.student</field>
+        <field name="inherit_id" ref="my_module.view_student_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="js_class">button_in_kanban</attribute>
+            </xpath>
+        </field>
+</record>
+
+<record id="product_newbtn_kanban" model="ir.ui.view">
+        <field name="name">product_view_newbtn</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="js_class">button_in_kanban_product</attribute>
+                <attribute name ="create" >false</attribute>
+            </xpath>
+        </field>
+</record>
+
+
+
+
+
+
+
+</odoo>

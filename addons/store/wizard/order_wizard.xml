@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+     
+        
+ <record id="view_wizard_form" model="ir.ui.view">
+        <field name="name">order.wizard.form</field>
+        <field name="model">order.wizard</field>
+        
+        <field name="arch" type="xml">
+            <form string="order">
+                <sheet>
+                    <group>
+                        <field name = "customer_id"/>
+                    </group>
+
+                    <button name='button_confirm' string = 'Add Customer' class='oe_highlight' type='object'/>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+</data>
+    </odoo>

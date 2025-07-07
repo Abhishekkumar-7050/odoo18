@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+   <t t-name="module.kanban.Buttons"    t-inherit="web.KanbanView">
+        <xpath expr="//Layout/t[@t-set-slot='control-panel-create-button']" position="inside">
+           <button type="button" class="btn btn-primary" t-on-click="OnTestClick">
+                Open
+            </button>
+       </xpath>
+   </t>
+</templates>

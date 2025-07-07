@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="email_template_edi_purchase_approval" model="mail.template">
+        <field name="name">Purchase: Request For Purchase Approval</field>
+        <field name="model_id" ref="purchase.model_purchase_order" />
+        <field name="subject">{{object.company_id.name }} Order (Ref {{ object.name or 'n/a' }})</field>
+        <field name="partner_to">{{ object.partner_id.id}}</field>
+
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <p style="margin: 0px; padding: 0px; font-size: 13px;"> Dear
+                      <t
+                        t-out="ctx['name']">
+                    </t>
+
+        <h3>Please Approve the
+                    Purchase Order</h3> <span t-out="object.name"></span>
+       
+        <br /><br /> Best regards, <br /><br />
+            <span>
+                        <t t-out="object.user_id.name" />
+                    </span>
+
+                </p>
+            </div>
+        </field>
+   
+    </record>
+
+
+
+
+    <record id="email_template_edi_refuse_approval" model="mail.template">
+        <field name="name">Purchase: Refuse For Purchase Approval</field>
+        <field name="model_id" ref="purchase.model_purchase_order" />
+        <field name="subject">{{object.company_id.name }} Order (Ref {{ object.name or 'n/a' }})</field>
+        <field name="partner_to">{{ object.partner_id.id }}</field>
+
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <p style="margin: 0px; padding: 0px; font-size: 13px;"> Dear 
+                    <t
+                        t-out="ctx['name']">
+                    </t>
+
+
+        <h3> Soryy I refusing
+                    purchase order ref</h3> <span t-out="object.name"></span>
+       
+        <br /><br /> Best
+                    regards, <br /><br />
+            <span>
+                        <t t-out="object.user_id.name" />
+                    </span>
+
+                </p>
+            </div>
+        </field>
+   
+    </record>
+
+</odoo>

@@ -1,0 +1,12 @@
+<!-- views/client_action_view.xml -->
+<odoo>
+    <record id="action_my_client_view" model="ir.actions.client">
+        <field name="name">odoo services </field>
+        <field name="tag">owl.OdooServices</field> 
+    </record>
+
+    <menuitem id="menu_my_client_view"
+              name="odooServices"
+              parent="menu_student_main"
+              action="action_my_client_view"/>
+</odoo>

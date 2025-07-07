@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="patient_form_view_1" model="ir.ui.view">
+        <field name="name">patient.patient.form</field>
+        <field name="model">patient.patient</field>
+        <field name="arch" type="xml">
+            <form string="patient">
+                <sheet>
+                    <group>
+                        
+                        <field name = "name"/>
+                        <field name="dob"/>
+                        <field name="email"/>
+                        <div style = "position: absolute ; top: 5px; right: 10px;">
+                        <field id="image_id"  name = "image" widget= "image"  class="oe_avatar" /> 
+                        </div>
+                         <field  name ="number"/>
+                         <field name="gender"/>
+                       <field name = "age"/>
+                       <field name = "company"/>
+                       
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+   
+
+
+
+
+    <!-- List View -->
+    <record id="patient_list_view_1" model="ir.ui.view">
+        <field name="name">patient.patient.list</field>
+        <field name="model">patient.patient</field>
+        <field name="arch" type="xml">
+            <list string="patient">
+                        <field name ="name"/>
+                        <field name="dob"/>
+                        <field name="email"/>
+                        <field  name ="number"/>
+                        <field name="gender"/>
+                       <field name = "age"/>
+                        <field name = "company"/>
+                        <!-- <div style ="height:30px; width:30px;"> -->
+                        <field name = "image" widget= "image"  class="oe_avatar" />  
+                        <!-- </div>     -->
+            </list>
+        </field>
+    </record>
+
+
+      <record id="action_patient" model="ir.actions.act_window">
+        <field name="name">patients_record</field>
+        <field name="res_model">patient.patient</field>
+        <field name="view_mode">list,form</field>
+    </record> 
+
+
+    <menuitem id="patient_menu_1"
+         name="Patients"
+         parent="menu_student_main"
+         sequence="100"
+         action ='action_patient'
+         />
+
+         
+
+</odoo>
