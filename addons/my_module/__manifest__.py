@@ -31,30 +31,30 @@
          'data/contact_us.xml',
     ],
 
-    'assets': {
-    'web.assets_frontend': [ 
-        #  'my_module/static/src/component/patient_list.js',
-        #  'my_module/static/src/component/orm_call.js',
-        #  'my_module/static/src/xml/patient_form.xml',
-        #  'my_module/static/src/xml/patient_list_template.xml',
-        #  "my_module/static/src/js/rpc_method.js"
+    # 'assets': {
+    # 'web.assets_frontend': [ 
+    #     #  'my_module/static/src/component/patient_list.js',
+    #     #  'my_module/static/src/component/orm_call.js',
+    #     #  'my_module/static/src/xml/patient_form.xml',
+    #     #  'my_module/static/src/xml/patient_list_template.xml',
+    #     #  "my_module/static/src/js/rpc_method.js"
 
-    ],
-     'web.assets_backend': [
-         'my_module/static/src/component/orm_call.js',
-         'my_module/static/src/component/orm_call.xml',
-         'my_module/static/src/component/newbtn/newbtn.js',
-         'my_module/static/src/component/newbtn/newbtn.xml',
-         'my_module/static/src/component/newbtn/newbtn_form.js',
-         'my_module/static/src/component/newbtn/newbtn_form.xml',
-         'my_module/static/src/component/newbtn/newbtn_kanban.js',
-         'my_module/static/src/component/newbtn/newbtn_kanban.xml',
-         'my_module/static/src/component/newbtn/newbtn_product.xml',
-         'my_module/static/src/component/newbtn/newbtn_product.js',
+    # ],
+    #  'web.assets_backend': [
+    #      'my_module/static/src/component/orm_call.js',
+    #      'my_module/static/src/component/orm_call.xml',
+    #      'my_module/static/src/component/newbtn/newbtn.js',
+    #      'my_module/static/src/component/newbtn/newbtn.xml',
+    #      'my_module/static/src/component/newbtn/newbtn_form.js',
+    #      'my_module/static/src/component/newbtn/newbtn_form.xml',
+    #      'my_module/static/src/component/newbtn/newbtn_kanban.js',
+    #      'my_module/static/src/component/newbtn/newbtn_kanban.xml',
+    #      'my_module/static/src/component/newbtn/newbtn_product.xml',
+    #      'my_module/static/src/component/newbtn/newbtn_product.js',
          
 
-    ],
-    },
+    # ],
+    # },
 
     
 
