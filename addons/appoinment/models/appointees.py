@@ -6,7 +6,7 @@ class Appointees(models.Model):
 
     name =  fields.Char(string = "Name")
 
-    allow_multiple = fields.Boolean(string = "Allow the multiple appointment")
+    allow_multiple = fields.Boolean(string = "Allow the multiple appointments")
 
     street = fields.Char()
     city = fields.Char()
