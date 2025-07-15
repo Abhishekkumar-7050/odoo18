@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_appointment_appointment,appointment.appointment.model,model_appointment_appointment,,1,1,1,1
+access_appointment_line,appointment.line.model,model_appointment_line,,1,1,1,1
+access_appointment_appointees,appointment.appointees.model,model_appointment_appointees,,1,1,1,1
+access_appointment_time_slot,appointment.time_slot.model,model_appointment_time_slot,,1,1,1,1
+access_appointment_dashboard,appointment.dashboard.model,model_appointment_dashboard,,1,1,1,1
+access_appointment_group,appointment.group.model,model_appointment_group,,1,1,1,1
+access_appointment_reject,appointment.reject.model,model_appointment_reject,,1,1,1,1
+
+
+

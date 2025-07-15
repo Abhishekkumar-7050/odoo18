@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Appointment Approved Template -->
+  
+    <record id="appointment_email_template_approved" model="mail.template">
+        <field name="name">Appointment Approved</field>
+        <field name="model_id" ref="model_appointment_appointment"/>
+        <field name="subject">Appointment Approved</field>
+        <field name="email_from">${(user.email or '')}</field>
+        <field name="email_to">${object.partner_id.email}</field>
+        <field name="body_html" type="html">
+            <html>
+                <body>
+                    <p>Dear <t t-esc="object.partner_id.name"/>,</p>
+                    <p>
+                        Your appointment scheduled on
+                        <strong><t t-esc="object.appoinnment_date"/></strong>
+                        at <strong><t t-esc="object.time_slot_id.name"/></strong>
+                        has been <strong>approved</strong>.
+                    </p>
+                    <p>Thank you ! </p>
+                     <span>Best Regards :</span><span t-esc = "user.name" />
+                </body>
+            </html>
+        </field>
+    </record>
+
+
+    <!-- Appointment Rejected Template -->
+
+       <record id="appointment_email_template_rejected" model="mail.template">
+        <field name="name">Appointment Rejected</field>
+        <field name="model_id" ref="model_appointment_appointment"/>
+        <field name="subject">Appointment Rejected</field>
+        <field name="email_from">${(user.email or '')}</field>
+        <field name="email_to">${object.partner_id.email}</field>
+        <field name="body_html" type="html">
+            <html>
+                <body>
+                    <p>Dear <t t-esc="object.partner_id.name"/>,</p>
+                    <p>
+                        We regret to inform you that your appointment on
+                        <strong><t t-esc="object.appoinnment_date"/></strong>
+                        at <strong><t t-esc="object.time_slot_id.name"/></strong>
+                        has been rejected.
+                        <br></br>
+                        Reason : <span t-esc = "object.reject_resson" />
+
+                    </p>
+                    <p>Please  try again with the diffrent date . </p>
+                    <span>Best Regards :</span><span t-esc = "user.name" />
+                </body>
+            </html>
+        </field>
+    </record>
+ 
+</odoo>

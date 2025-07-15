@@ -1,0 +1,125 @@
+<odoo>
+
+    <record id="view_appointees_form" model="ir.ui.view">
+        <field name="name">appointmentees_form</field>
+        <field name="model">appointment.appointees</field>
+        <field name="arch" type="xml">
+            <form string="appointmentees">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+
+                            <div class="o_address_format"> Address : <field name="street"
+                                    placeholder="Street..." class="o_address_street" />
+                                
+                                <field
+                                    name="city" placeholder="City" class="o_address_city" />
+                                <field
+                                    name="state_id" class="o_address_state" placeholder="State" />
+                                <field
+                                    name="zip" placeholder="ZIP" class="o_address_zip" />
+                                <div
+                                    name="partner_address_country"
+                                    class="d-flex justify-content-between">
+                                    <field name="country_id" placeholder="Country"
+                                        class="o_address_country" />
+                                </div>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="image" />
+                            <field name="email" />
+                            <field name="phone" />
+                            <field name="company_id" />
+                            <field name="appointments_charges" />
+                        </group>
+                        <notebook>
+                            <page string="General Informations">
+                                <group>
+                                <field name="experience" />
+                                <field name="specialist_in" />
+                                <field name="about" />
+                                </group>
+
+                            </page>
+                            <page string="Time Slots">
+
+                                <field name="time_slot_line" />
+
+
+                            </page>
+                            <page string="All Appointments">
+                                <field name="appointment_ids">
+                                    <list string="Appointments" editable="bottom">
+                                        <field name="partner_id" />
+                                        <field name="appoinnment_date" />
+                                        <field name="time_slot_id" />
+                                        <field name="state" />
+                                        <button name="action_set_pending" type="object"
+                                            string="Pending"
+                                            invisible="state != 'new'" class="btn-secondary"
+                                            groups="appoinment.group_of_appointess" />
+
+                                        <button name="action_approve" type="object" string="Approve"
+                                            invisible="state in ('approved','rejected')"
+                                            class="btn-primary"
+                                            groups="appoinment.group_of_appointess" />
+
+                                        <button name="action_reject_wizard" type="object" string="Reject"
+                                            invisible="state not in ('new', 'pending')"
+                                            class="btn-danger"
+                                            groups="appoinment.group_of_appointess" />
+
+                                    </list>
+                                </field>
+                            </page>
+
+                            <page string="Important Notes">
+
+                                <group>
+                                    <field name="note"/>
+                                </group>
+
+                            </page>
+                        </notebook>
+                    </group>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_appointees_list" model="ir.ui.view">
+        <field name="name">appointment_appointees_list</field>
+        <field name="model">appointment.appointees</field>
+        <field name="arch" type="xml">
+            <list string="appointees">
+                <field name="name" />
+                <field name="city" />
+                <field name="phone" />
+                <field name="email" />
+
+            </list>
+        </field>
+    </record>
+
+
+    <record id="action_appointees" model="ir.actions.act_window">
+        <field name="name">appointees</field>
+        <field name="res_model">appointment.appointees</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <menuitem id="menu_appointees"
+        name="Appointees"
+        parent="appinment_configuration"
+        action="action_appointees"
+        sequence='1'
+    />
+
+
+</odoo>

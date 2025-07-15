@@ -25,7 +25,7 @@
     </record>
 
 
-<!-- 
+
 <record id="record_access_ac_to_state_director" model="ir.rule">
     <field name="name">Your Rule Name</field>
     <field name="model_id" ref="model_purchase_order"/> 
@@ -48,6 +48,6 @@
     <field name="model_id" ref="model_purchase_order"/> 
     <field name="domain_force">['|' ,('state', 'in', ['finace', 'financewait', 'refuse', 'draft', 'purchase']), ('financeApprovals' , '=', user.name )]</field>
     <field name="groups" eval="[(4, ref('group_of_Finace'))]"/>
-</record> -->
+</record> 
    
 </odoo>

@@ -1,0 +1,158 @@
+<odoo>
+    <!-- Form View -->
+    <record id="view_appointment_form" model="ir.ui.view">
+        <field name="name">appointment_form</field>
+        <field name="model">appointment.appointment</field>
+        <field name="arch" type="xml">
+            <form string="appointment">
+
+                <header>
+
+                    <button name="action_set_pending" type="object" string="Pending"
+                        invisible="state != 'new'" class="btn-secondary"
+                        groups="base.group_system" />
+
+                    <button name="action_approve" type="object" string="Approve"
+                        invisible="state != 'pending'" class="btn-primary"
+                        groups="base.group_system" />
+
+                    <button name="action_reject_wizard" type="object" string="Reject"
+                        invisible="state not in ('new', 'pending')" class="btn-danger"
+                        groups="base.group_system" />
+
+
+                    <button name="action_create_invoice" type="object" string="Create Invoice"
+                        invisible="state != 'approved'"
+                        class="btn-primary" />
+
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="new,pending,approved,rejected" />
+                </header>
+
+                 <div class="alert alert-danger" role="alert" invisible = "state != 'new'">
+                 Please Fill the  form in order  like First Appointment date greater then create date . Appointees and then Time Slot ....
+            </div>
+
+                <sheet>
+                    <group>
+                        <group>
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="name" readonly="1" />
+                                </h1>
+                            </div>
+                            <field name="partner_id" />
+                            <field name="create_date" />
+                            <field name="appoinnment_date" />
+                        </group>
+                        <group>
+                            <field name="appointees_id" />
+                            <field name="time_slot_id" visible="appointees_id != ''" />
+                            <field name="currency_id" />
+                        </group>
+
+                        <notebook>
+
+
+                            <page string="Charge">
+                                <field name="order_line" mode="list">
+                                    <list editable="bottom">
+                                        <field name="group_product" />
+                                        <field name="discription" />
+                                        <field name="appointment_charge" />
+                                        <field name="sub_total" />
+
+                                    </list>
+                                </field>
+                                <group col="6" class="mt-2 mt-md-0">
+                                    <group colspan="4" class="order-1 order-lg-0">
+                                        <field colspan="2" name="discription" nolabel="1"
+                                            placeholder=" Description......" />
+                                    </group>
+                                    <group
+                                        class="oe_subtotal_footer order-0 order-lg-1  gap-0 gap-sm-3"
+                                        name="sale_total">
+
+                                        <field name="amount_untaxed" readonly="1" />
+                                        <!-- <field name="amount_tax" nolabel="1" readonly="1" /> -->
+                                        <field name="amount_total" readonly="1" />
+                                    </group>
+                                </group>
+
+                            </page>
+                            <page string="Other info">
+                                <group>
+                                    <field name="detailed_discription" />
+                                </group>
+
+                            </page>
+                            <page string="Contact/Address">
+
+
+                                <group>
+                                    <field name="partner_id" />
+                                    <field name="street" readonly="1" />
+                                    <field name="city" readonly="1" />
+                                    <field name="zip" readonly="1" />
+                                    <field name="phone" readonly="1" />
+                                    <field name="email" readonly="1" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_appointment_list" model="ir.ui.view">
+        <field name="name">appointment_appointment_list</field>
+        <field name="model">appointment.appointment</field>
+        <field name="arch" type="xml">
+            <list string="appointments">
+                <field name="partner_id" />
+                <field name="time_slot_id" />
+                <field name="appoinnment_date" />
+                <field name="create_date" />
+
+            </list>
+        </field>
+    </record>
+
+     <record id="view_appointment_calendar" model="ir.ui.view">
+        <field name="name">appointment.calendar</field>
+        <field name="model">appointment.appointment</field>
+        <field name="arch" type="xml">
+            <calendar string="Appointments" date_start="appoinnment_date" color="appointees_id" mode="day">
+                <field name="partner_id"/>
+                <field name="state"/>
+                <field name="appointees_id"/>
+                <field name="time_slot_id"/>
+            </calendar>
+        </field>
+    </record>
+
+
+    <record id="action_appointment" model="ir.actions.act_window">
+        <field name="name">appointment</field>
+        <field name="res_model">appointment.appointment</field>
+        <field name="view_mode">list,form,calendar</field>
+    </record>
+
+
+    <menuitem id="menu_appointment_main" name="appointment" />
+
+    <menuitem id="appinment_configuration" name="Configurations" parent="menu_appointment_main"
+        sequence='20' />
+
+    <menuitem id="menu_appointment_"
+        name="appointment"
+        parent="menu_appointment_main"
+        action="action_appointment"
+        sequence='10'
+    />
+
+
+</odoo>

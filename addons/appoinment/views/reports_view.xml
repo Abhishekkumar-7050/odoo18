@@ -1,0 +1,33 @@
+<odoo>
+
+
+    <odoo>
+    <record id="view_appointment_group_graph" model="ir.ui.view">
+        <field name="name">appointment.group.graph</field>
+        <field name="model">appointment.group</field>
+        <field name="arch" type="xml">
+            <graph string="Group-wise Appointment Report" type="bar">
+                <field name="group_name"/>
+                <field name="appointment_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_appointment_group_report" model="ir.actions.act_window">
+        <field name="name">Group-wise Report</field>
+        <field name="res_model">appointment.group</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_appointment_group_graph"/>
+    </record>
+</odoo>
+
+
+
+
+    <menuitem id="menu_group_wise_appointment_report"
+              name="Group Wise Report"
+              parent="menu_appointment_main"
+              action="action_appointment_group_report"
+              sequence="12"/>
+
+</odoo>

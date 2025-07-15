@@ -1,14 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
    <data >
-       <record id="dead_line_task_mail_id" model="ir.cron">
-           <field name="name">Daily_Tasks_deadline_reminder</field>
+       <record id="dead_line_task_mail_id_new" model="ir.cron">
+           <field name="name">Daily_Tasks_deadline_reminder_new</field>
            <field name="model_id" ref="model_project_task"/>
            <field name="state">code</field>
            <field name="code">model.action_send_mail_task_reminder()</field>
-           <field name='interval_number'>1</field>
-           <field name='interval_type'>months</field>
-        
-
+           <field name='interval_number'>10</field>
+           <field name='interval_type'>minutes</field>
+           <field name="active">True</field>
        </record>
    </data>
 </odoo>
