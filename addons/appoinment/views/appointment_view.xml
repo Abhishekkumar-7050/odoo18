@@ -8,16 +8,16 @@
 
                 <header>
 
-                    <button name="action_set_pending" type="object" string="Pending"
+                    <!-- <button name="action_set_pending" type="object" string="Pending"
                         invisible="state != 'new'" class="btn-secondary"
-                        groups="base.group_system" />
+                        groups="base.group_system" /> -->
 
                     <button name="action_approve" type="object" string="Approve"
                         invisible="state != 'pending'" class="btn-primary"
                         groups="base.group_system" />
 
                     <button name="action_reject_wizard" type="object" string="Reject"
-                        invisible="state not in ('new', 'pending')" class="btn-danger"
+                        invisible="state != 'pending'" class="btn-danger"
                         groups="base.group_system" />
 
 
@@ -29,7 +29,7 @@
                         statusbar_visible="new,pending,approved,rejected" />
                 </header>
 
-                 <div class="alert alert-danger" role="alert" invisible = "state != 'new'">
+                 <div class="alert alert-info" role="alert" invisible = "state != 'new'">
                  Please Fill the  form in order  like First Appointment date greater then create date . Appointees and then Time Slot ....
             </div>
 
@@ -42,7 +42,7 @@
                                 </h1>
                             </div>
                             <field name="partner_id" />
-                            <field name="create_date" />
+                            <!-- <field name="create_date" /> -->
                             <field name="appoinnment_date" />
                         </group>
                         <group>
@@ -112,10 +112,13 @@
         <field name="model">appointment.appointment</field>
         <field name="arch" type="xml">
             <list string="appointments">
+                <field name = "currency_id" column_invisible= "True" />
                 <field name="partner_id" />
                 <field name="time_slot_id" />
                 <field name="appoinnment_date" />
                 <field name="create_date" />
+                
+                <field name = "amount_total"  sum = "Total Amount of Appointments" />
 
             </list>
         </field>
@@ -144,7 +147,7 @@
 
     <menuitem id="menu_appointment_main" name="appointment" />
 
-    <menuitem id="appinment_configuration" name="Configurations" parent="menu_appointment_main"
+    <menuitem id="appinment_configuration" name="Configurations" parent="menu_appointment_main"   groups="base.group_system,appoinment.group_of_appointess"
         sequence='20' />
 
     <menuitem id="menu_appointment_"

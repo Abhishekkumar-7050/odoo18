@@ -28,6 +28,7 @@ class appointment(models.Model):
                 vals['name'] = self.env['ir.sequence'].with_context(ctx).next_by_code(
                     'appointment.appointment'
                 ) or "New"
+            vals['state'] = "pending"
         return super().create(vals_list)
 
 

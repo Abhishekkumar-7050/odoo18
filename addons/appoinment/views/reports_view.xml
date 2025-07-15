@@ -25,7 +25,7 @@
 
 
     <menuitem id="menu_group_wise_appointment_report"
-              name="Group Wise Report"
+              name="Reports"
               parent="menu_appointment_main"
               action="action_appointment_group_report"
               sequence="12"/>

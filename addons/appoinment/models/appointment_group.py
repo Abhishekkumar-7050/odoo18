@@ -27,6 +27,11 @@ class AppointmentGroup(models.Model):
 
     appointment_id = fields.Many2one('appointment.appointment' , index=True, copy=False)
 
+
+    # "'for smart buttons '"
+    # appointees_id = fields.Many2one('appointment.appointees', string="Appointee")
+
+
     
 
     @api.depends('appointment_charge')

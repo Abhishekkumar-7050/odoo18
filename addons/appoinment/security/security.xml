@@ -7,5 +7,16 @@
         <field name="name">Appointees</field>
         <field name="category_id" ref="appoinment.appointment_management_accesss"/>
     </record>
+
+
+
+<record id="appointment_rule_user_own_records" model="ir.rule">
+    <field name="name">Appointments Only Own Records</field>
+    <field name="model_id" ref="model_appointment_appointment"/>
+    <field name="domain_force">[('create_uid', '=', user.id)]</field>
+    <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+</record>
+
+
     
 </odoo>

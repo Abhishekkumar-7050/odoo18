@@ -5,12 +5,15 @@
         <field name="model">appointment.appointees</field>
         <field name="arch" type="xml">
             <form string="appointmentees">
+                
+
                 <sheet>
                     <group>
                         <group>
+
                             <field name="name" />
 
-                            <div class="o_address_format"> Address : <field name="street"
+                            <div class="o_address_format"> <strong>Address :</strong> <field name="street"
                                     placeholder="Street..." class="o_address_street" />
                                 
                                 <field
@@ -28,7 +31,7 @@
                             </div>
                         </group>
                         <group>
-                            <field name="image" />
+                            <field name="image" widget="image" class="oe_avatar"/>
                             <field name="email" />
                             <field name="phone" />
                             <field name="company_id" />
@@ -84,9 +87,21 @@
                             </page>
                         </notebook>
                     </group>
+                    <div class = "oe_button_box" name = "button_box">
+                    <button name="action_open_groups"
+                        string="Groups"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-users">
+                    <field name="group_id" widget="statinfo"/>
+                </button>
+            
+                </div>
 
                 </sheet>
+                
 
+            <chatter />
             </form>
         </field>
     </record>
