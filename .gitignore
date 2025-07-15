@@ -1,0 +1,10 @@
+./code.txt
+./code.pub
+./code2.txt
+./code2.pub
+*.pem
+*.key
+*.pub
+code2
+id_rsa
+id_ed25519
