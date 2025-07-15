@@ -1,6 +1,7 @@
 ./code.txt
 ./code.pub
 ./code2.txt
+<<<<<<< HEAD
 ./code2.pub
 *.pem
 *.key
@@ -8,3 +9,6 @@
 code2
 id_rsa
 id_ed25519
+=======
+./code2.pub
+>>>>>>> 9130b2c (add git ignore)
