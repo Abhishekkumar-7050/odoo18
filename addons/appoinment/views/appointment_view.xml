@@ -22,8 +22,10 @@
 
 
                     <button name="action_create_invoice" type="object" string="Create Invoice"
-                        invisible="state != 'approved'"
+                        invisible="state != 'approved' or invoice_id"
                         class="btn-primary" />
+
+                    <button name= "action_for_invoice" type = "object" string ="View invoice "  invisible  = "not invoice_id"/>
 
                     <field name="state" widget="statusbar"
                         statusbar_visible="new,pending,approved,rejected" />
@@ -117,7 +119,10 @@
                 <field name="time_slot_id" />
                 <field name="appoinnment_date" />
                 <field name="create_date" />
-                
+                <field name = "state"  widget = "badge" decoration-success="state == 'approved'"
+                                        decoration-danger="state == 'rejected'"
+                                        decoration-info="state == 'pending'" />
+                                        
                 <field name = "amount_total"  sum = "Total Amount of Appointments" />
 
             </list>

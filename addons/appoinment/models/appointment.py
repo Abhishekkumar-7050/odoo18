@@ -166,7 +166,7 @@ class appointment(models.Model):
         for rec in self:
           
             rec.write({'state': 'rejected'})
-            template = self.env.ref('appoinment.appointment_email_template_rejected', raise_if_not_found=False)
+            template = self.env.ref('appoinment.appointment_email_template_rejected',raise_if_not_found=False)
             if template and rec.partner_id.email:
                 template.send_mail(rec.id, force_send=True)
 
@@ -297,6 +297,16 @@ class appointment(models.Model):
             'view_mode': 'form',
             'target': 'current',
         }
+    
+    def action_for_invoice(self):
+            return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'account.move',
+            'res_id': self.invoice_id.id,
+            'view_mode': 'form',
+            'target': 'current',
+        }
+
                 
     def action_reject_wizard(self):
         
