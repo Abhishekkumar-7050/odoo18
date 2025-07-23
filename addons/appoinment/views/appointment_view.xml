@@ -8,9 +8,8 @@
 
                 <header>
 
-                    <!-- <button name="action_set_pending" type="object" string="Pending"
-                        invisible="state != 'new'" class="btn-secondary"
-                        groups="base.group_system" /> -->
+                   <button name="%(action_send_sms_twilio)d" type="action" string="Send SMS" class="btn-primary"/>
+
 
                     <button name="action_approve" type="object" string="Approve"
                         invisible="state != 'pending'" class="btn-primary"
@@ -141,6 +140,24 @@
             </calendar>
         </field>
     </record>
+
+
+
+            <record id="action_send_sms_twilio" model="ir.actions.server">
+                <field name="name">Send SMS via Twilio</field>
+                <field name="model_id" ref="appoinment.model_appointment_appointment"/>
+                <field name="state">code</field>
+                <field name="code">
+                   action = records.send_sms_via_twilio()
+
+                </field>
+            </record>
+
+
+   
+  
+
+
 
 
     <record id="action_appointment" model="ir.actions.act_window">

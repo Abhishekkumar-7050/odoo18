@@ -318,6 +318,9 @@ class appointment(models.Model):
                 'target':'new',
                 
             }
+    
+    
+    
 
 
   

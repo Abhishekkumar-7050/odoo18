@@ -1,52 +1,10 @@
 <odoo>
   
 
-<record id="view_appointment_dashboard_kanban" model="ir.ui.view">
-    <field name="name">appointment.dashboard.kanban</field>
-    <field name="model">appointment.dashboard</field>
-    <field name="arch" type="xml">
-        <kanban>
-            <templates>
-                <t t-name="kanban-box">
-                    <div class="oe_kanban_card" style="border-top: 4px solid #007bff; padding: 16px; margin:20px;">
-                        <h3><field name="new_state_name"/></h3>
-                        <span>Count: <field name="new_state_count"/></span><br/>
-                        <button type="object" name="action_open_new_appointments" class="btn btn-link">View</button>
-                    </div>
-
-                    <div class="oe_kanban_card" style="border-top: 4px solid #ffc107; padding: 16px; margin:20px;">
-                        <h3><field name="pending_state_name"/></h3>
-                        <span>Count: <field name="pending_state_count"/></span><br/>
-                        <button type="object" name="action_open_pending_appointments" class="btn btn-link">View</button>
-                    </div>
-
-                    <div class="oe_kanban_card" style="border-top: 4px solid #28a745; padding: 16px; margin:20px;">
-                        <h3><field name="approved_state_name"/></h3>
-                        <span>Count: <field name="approved_state_count"/></span><br/>
-                        <button type="object" name="action_open_approved_appointments" class="btn btn-link">View</button>
-                    </div>
-
-                    <div class="oe_kanban_card" style="border-top: 4px solid #dc3545; padding: 16px; margin:20px;">
-                        <h3><field name="rejected_state_name"/></h3>
-                        <span>Count: <field name="rejected_state_count"/></span><br/>
-                        <button type="object" name="action_open_rejected_appointments" class="btn btn-link">View</button>
-                    </div>
-
-                    <div class="oe_kanban_card" style="border-top: 4px solid #6f42c1; padding: 16px; margin:20px;">
-                        <h3><field name="done_state_name"/></h3>
-                        <span>Count: <field name="done_state_count"/></span><br/>
-                        <button type="object" name="action_open_done_appointments" class="btn btn-link">View</button>
-                    </div>
-                </t>
-            </templates>
-        </kanban>
-    </field>
-</record>
 
 
 
-
-<record id="action_appointment_dashboard_server" model="ir.actions.server">
+<!-- <record id="action_appointment_dashboard_server" model="ir.actions.server">
     <field name="name">Appointment Dashboard</field>
     <field name="model_id" ref="model_appointment_dashboard"/>
     <field name="binding_model_id" ref="model_appointment_dashboard"/>
@@ -58,7 +16,17 @@
     <menuitem id="menu_appointment_dashboard" name="Dashboard"
           parent="menu_appointment_main"
           sequence = "5"
-          action="action_appointment_dashboard_server"/>
+          action="action_appointment_dashboard_server"/> -->
+
+
+    <record id="appoinment_dashboard_action" model="ir.actions.client">
+    <field name="name">Appoinment Dashboard</field>
+    <field name="tag">appoinment_dashboard_tag</field>
+    </record>
+    <menuitem name="Dashboard" id="appointment_dashboard"      
+            sequence="5" action="appoinment_dashboard_action"
+            parent="menu_appointment_main"/>
+    
 
 
 

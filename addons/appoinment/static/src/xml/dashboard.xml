@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+
+    <t t-name="appoinment.appDashboard">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+            rel="stylesheet" />
+
+        <!-- <input type="date" t-ref="startDateRef" />
+<input type="date" t-ref="endDateRef" /> -->
+        <div style="height: 100vh; width:100vw; overflow-y: auto; padding: 0 20px;">
+            <header
+                style="height:130px; padding-left :30px; display:flex;   border-bottom: 1px solid #dddddd; ">
+                <div style="width:50%;">
+                    <h1 style="padding :20px;">All Appointments</h1>
+                </div>
+                <div style="margin-top : 30px ; ">
+                    <label for="start">Start date:</label>
+                    <input type="date" id="start_date" max=""  t-ref="startDateRef"/>
+                    <label for="End" style="padding-left :20px;">End date:</label>
+                    <input type="date" id="end-date"  t-ref="endDateRef" />
+                    <button type="button" style="margin-left:20px;" class="btn btn-primary"
+                        t-on-click="_fetch_data"> Search </button>
+                </div>
+
+            </header>
+            <div style="margin-top:25px;">
+                <main id="main"
+                    style="height: auto; width: 80vw ; margin :auto;  display:flex;flex-direction:row; gap :20px ;   flex-wrap: wrap; ">
+
+
+
+                    <div id="new"
+                        style="width: 30%; height: 250px; border: 2px solid blue; position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 6px 20px rgba(0,0,0,0.25); 
+            border-radius: 8px; background: #fff; overflow: hidden;">
+
+                        <!-- Header centered at top -->
+                        <div
+                            style=" color: Blue; text-align: center; padding: 8px 0;
+                font-weight: bold; font-size: 18px; margin-top">
+                            New
+                        </div>
+
+                        <!-- Centered number counter -->
+                        <div
+                            style="display: flex; flex-direction: row; align-items: center; justify-content: space-around;
+                height: 140px; text-align: center;">
+                            <div
+                                style="width: 100px; height: 100px;
+                    display: flex; align-items: center; justify-content: center;
+                    font-size: 40px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-weight: bold; color: blue;">
+                                <i class="bi bi-file-plus"></i>
+                            </div>
+
+
+                            <!-- Button at bottom -->
+                            <div
+                                style="position: absolute; bottom: 0px; left: 0; width: 100%;
+            padding: 8px 12px; border-top: 1px solid black;
+            display: flex; justify-content: space-between; align-items: center;">
+                                <span>Create New </span>
+                                <button type="button"
+                                    class="btn   justify-content-between align-items-center"
+                                    t-on-click="onCreateNew">
+                                   <i class="bi bi-arrow-right-square-fill"></i> <!-- Bootstrap Icon -->
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div id="pending"
+                        style="width: 30%; height: 250px; border: 2px solid #DAA520; position: relative;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 6px 20px rgba(0,0,0,0.25); 
+                    border-radius: 8px; background: #fff; overflow: hidden;">
+
+                        <!-- Header centered at top -->
+                        <div
+                            style="color: #DAA520; text-align: center; padding: 8px 0;
+                        font-weight: bold; font-size: 18px;">
+                            Pending
+                        </div>
+
+                        <!-- Centered number counter -->
+                        <div
+                            style="display: flex; flex-direction: row; align-items: center; justify-content: space-around;
+                        height: 140px; text-align: center;"> 
+                        <i class="bi bi-hourglass-top"  style = "color: #DAA520; font-size: 40px;"></i>
+                            <div id = "pending-count"
+                                style="width: 100px; height: 100px;
+                            display: flex; align-items: center; justify-content: center;
+                            font-size: 40px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            font-weight: bold; color: #DAA520;">
+                                11
+                            </div>
+
+                            <!-- Bottom bar with label and icon button -->
+                            <div
+                                style="position: absolute; bottom: 0px; left: 0; width: 100%;
+                            padding: 8px 12px; border-top: 1px solid #DAA520;
+                            display: flex; justify-content: space-between; align-items: center;">
+
+                                <span style="color: #DAA520; font-weight: 500;">View Pending</span>
+
+                                <button type="button" class="btn btn-sm p-0"
+                                    t-on-click="onview_pending">
+                                    <i class="bi bi-arrow-right-square-fill"
+                                        style="color: #DAA520; font-size: 18px;"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+         <div id="approved"
+                        style="width: 30%; height: 250px; border: 2px solid green; position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 6px 20px rgba(0,0,0,0.25); 
+    border-radius: 8px; background: #fff; overflow: hidden;">
+
+                        <!-- Header centered at top -->
+                        <div
+                            style="color: green; text-align: center; padding: 8px 0;
+        font-weight: bold; font-size: 18px;">
+                            Approved
+                        </div>
+
+                        <!-- Centered number counter -->
+                        <div
+                            style="display: flex; flex-direction: row; align-items: center; justify-content: space-around;
+        height: 140px; text-align: center;">
+        <i class="bi bi-check2-square"  style = "color: green; font-size: 40px;"></i>
+                            <div  id = "approved-count"
+                                style="width: 100px; height: 100px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 40px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold; color: green;">
+                                0
+                            </div>
+
+                            <!-- Bottom bar with label and icon -->
+                            <div
+                                style="position: absolute; bottom: 0px; left: 0; width: 100%;
+            padding: 8px 12px; border-top: 1px solid green;
+            display: flex; justify-content: space-between; align-items: center;">
+
+                                <span style="color: green; font-weight: 500;">View Approved</span>
+
+                                <button type="button" class="btn btn-sm p-0"
+                                    t-on-click="onview_approved">
+                                   <i class="bi bi-arrow-right-square-fill"
+                                        style="color: green; font-size: 18px;"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+         <div id="rejected"
+                        style="width: 30%; height: 250px; border: 2px solid red; position: relative;
+                        box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 6px 20px rgba(0,0,0,0.25); 
+                        border-radius: 8px; background: #fff; overflow: hidden;">
+
+                                            <!-- Header centered at top -->
+                        <div
+                            style="color: red; text-align: center; padding: 8px 0;
+        font-weight: bold; font-size: 18px;">
+                            Rejected
+                        </div>
+
+                        <!-- Centered counter -->
+                        <div
+                            style="display: flex; flex-direction: row; align-items: center; justify-content: space-around;
+        height: 140px; text-align: center;">
+         <i class="bi bi-x-circle"  style = "color: red; font-size: 40px;"></i>
+                            <div id = "rejected-count"
+                                style="width: 100px; height: 100px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 40px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold; color: red;">
+                                0
+                            </div>
+
+                            <!-- Bottom bar -->
+                            <div
+                                style="position: absolute; bottom: 0px; left: 0; width: 100%;
+            padding: 8px 12px; border-top: 1px solid red;
+            display: flex; justify-content: space-between; align-items: center;">
+
+                                <span style="color: red; font-weight: 500;">View Rejected</span>
+
+                                <button type="button" class="btn btn-sm p-0"
+                                    t-on-click="onview_reject">
+                                   <i class="bi bi-arrow-right-square-fill" style="color: red; font-size: 18px;"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+  <div id="done"
+    style="width: 30%; height: 250px; border: 2px solid black; position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 6px 20px rgba(0,0,0,0.25); 
+    border-radius: 8px; background: #fff; overflow: hidden;">
+
+    <!-- Header centered at top -->
+    <div style="color: black; text-align: center; padding: 8px 0;
+        font-weight: bold; font-size: 18px;">
+        Done
+    </div>
+
+    <!-- Centered counter -->
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-around;
+        height: 140px; text-align: center;">
+        <i class="bi bi-list-check"  style = "color: black; font-size: 40px;"></i>
+        <span id ="till-now"></span>
+        <div id="total-count"
+            style="width: 100px; height: 100px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 40px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold; color: #333;">
+            0
+        </div>
+    </div>
+
+
+    <!-- Bottom bar -->
+    <div style="position: absolute; bottom: 0px; left: 0; width: 100%;
+        padding: 8px 12px; border-top: 1px solid black;
+        display: flex; justify-content: space-between; align-items: center;">
+        <span style="color: black; font-weight: 500;">View Total</span>
+        <button type="button" class="btn btn-sm p-0" t-on-click="onview_total">
+           <i class="bi bi-arrow-right-square-fill" style="color: black; font-size: 18px;"></i>
+        </button>
+    </div>
+</div>
+
+
+
+
+                </main>
+
+            </div>
+            <div
+                style="height:350px ; width: 80vw ; margin :auto; display :flex; justify-content:space-around; margin: 70px;">
+                <canvas t-ref="chart" id="acquisitions" style="width:350px;height: 100%;"></canvas>
+                <canvas t-ref="pieChart" id="appointmentPieChart"
+                    style="width: 350px; height: 100%;"></canvas>
+
+            </div>
+
+
+        </div>
+
+
+    </t>
+</templates>

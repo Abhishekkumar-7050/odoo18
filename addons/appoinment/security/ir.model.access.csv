@@ -6,6 +6,7 @@ access_appointment_time_slot,appointment.time_slot.model,model_appointment_time_
 access_appointment_dashboard,appointment.dashboard.model,model_appointment_dashboard,,1,1,1,1
 access_appointment_group,appointment.group.model,model_appointment_group,,1,1,1,1
 access_appointment_reject,appointment.reject.model,model_appointment_reject,,1,1,1,1
+access_twilio_config,twilio.config.model,model_twilio_config,,1,1,1,1
 
 
 
