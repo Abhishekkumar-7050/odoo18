@@ -14,10 +14,7 @@ class AppointmentSMS(models.Model):
 
          
         for record in self:
-            # Twilio credentials
-            # account_sid = 'AC1b4614b7ec8405eb223b48ee3734dae5'
-            # auth_token = '25b7ed84693ddb2b32d8357f0577a0f9'
-            # twilio_number = '+12706151613'
+           
             account_sid = config.account_sid
             auth_token = config.auth_token
             twilio_number = config.twilio_number
