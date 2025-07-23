@@ -18,23 +18,29 @@
     </record>
 
     <!-- Form View -->
-    <record id="view_twilio_config_form" model="ir.ui.view">
-        <field name="name">twilio.config.form</field>
-        <field name="model">twilio.config</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="account_sid"/>
-                        <field name="auth_token"/>
-                        <field name="twilio_number"/>
-                        <field name="active"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+  <record id="twilio_config_form_view" model="ir.ui.view">
+    <field name="name">twilio.config.form</field>
+    <field name="model">twilio.config</field>
+    <field name="arch" type="xml">
+        <form string="Twilio Configuration">
+            <header>
+                <button name="action_test_connection"
+                        string="Test Connection"
+                        type="object"
+                        class="btn-primary"/>
+            </header>
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="account_sid"/>
+                    <field name="auth_token"/>
+                    <field name="twilio_number"/>
+                    <field name="active"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
 
 
        <!-- Action -->
