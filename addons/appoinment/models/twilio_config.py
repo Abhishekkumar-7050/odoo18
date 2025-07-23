@@ -10,7 +10,7 @@ class TwilioConfig(models.Model):
     account_sid = fields.Char(string="Account SID", required=True)
     auth_token = fields.Char(string="Auth Token", required=True)
     twilio_number = fields.Char(string="Twilio Number", required=True)
-    active = fields.Boolean(default=True)
+    active = fields.Boolean(default=False)
 
 
 
